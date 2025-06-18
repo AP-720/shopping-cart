@@ -29,6 +29,9 @@
 	--spacing-xl: 2rem;
 	--spacing-2xl: 3rem;
 	--spacing-3xl: 4rem;
+
+	--container-width: 1200px;
+
 }
 
 body {
@@ -47,3 +50,5 @@ h6,
 p {
 	margin: 0;
 }
+
+
