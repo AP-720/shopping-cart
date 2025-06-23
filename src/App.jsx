@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
 import styles from "./App.module.css";
 
 function App() {
+	const [shoppingCart, setShoppingCart] = useState([]);
+
 	return (
 		<div className={styles.appLayout}>
 			<header className={styles.headerContainer}>
@@ -11,7 +14,7 @@ function App() {
 			<main className={styles.mainContainer}>
 				<Outlet />
 			</main>
-			<footer>
+			<footer data-testid="footer">
 				<div className={styles.footerContainer}>
 					<p>
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit.

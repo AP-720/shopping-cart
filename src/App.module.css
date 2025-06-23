@@ -3,7 +3,7 @@ header {
 }
 
 main {
-	background-color: blue;
+	/* background-color: blue; */
 }
 
 footer {
@@ -22,7 +22,7 @@ footer {
 
 .mainContainer {
 	flex: 1;
-	width: 100%;
+	width: 100%; /* Need this so that the flex container takes up the full width of the max width */
 	max-width: var(--container-width);
 	margin-inline: auto;
 	padding: var(--spacing-xl) var(--spacing-l);
