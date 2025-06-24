@@ -1,0 +1,23 @@
+.errorContainer {
+	max-width: var(--container-width);
+	min-height: 100vh;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: var(--spacing-xl);
+}
+
+.errorTitle {
+	font-size: 2rem;
+}
+
+.errorLink {
+	font-size: var(--heading-3-size);
+	color: blue;
+}
+
+.errorLink:hover {
+	text-decoration: underline;
+}

@@ -2,9 +2,9 @@
 
 ## Nav Bar
 
-- link to home page
-- Link to shop page
-- Shopping cart icon - display how many items are in the cart.
+- [x] link to home page
+- [x] Link to shop page
+- [] Shopping cart icon - display how many items are in the cart.
 
 ---
 
@@ -19,18 +19,18 @@
 
 - **Product card**
   Each product card should include:
-- Product Image
-- Title (e.g., product name)
-- Quantity input field (manual input)
-- Increment and decrement buttons (to adjust quantity)
-- “Add to Cart” button
+- [] Product Image
+- [] Title (e.g., product name)
+- [] Quantity input field (manual input)
+- [] Increment and decrement buttons (to adjust quantity)
+- [] “Add to Cart” button
 
 - **Shopping Cart**
 - Display summary for each item in cart. Name, quantity, price per item, total price of item
-- Total for whole cart
-- Remove item button
-- Check out button - Fake payment process animation, then reset cart.
-- Will have to have some state to store whats in cart, might need to be in parent.
+- [] Total for whole cart
+- [] Remove item button
+- [] Check out button - Fake payment process animation, then reset cart.
+- [] Will have to have some state to store whats in cart, might need to be in parent.
 
 ---
 
@@ -39,16 +39,17 @@
 - Home page
 - Shop page
 - Shopping Cart/Check out page
+- Error page
 
 ---
 
 ## Misc
 
-- Use Lucide for icons.
-- Error page
-- React Router in app file
-- Outlet for home, shop page in app file.
-- Cart state and logic in app file.
+- [] Use Lucide for icons.
+- [] Error page
+- [] React Router in app file
+- [] Outlet for home, shop page in app file.
+- [] Cart state and logic in app file.
 
 ---
 
