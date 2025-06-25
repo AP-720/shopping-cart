@@ -27,8 +27,15 @@ const router = createBrowserRouter([
 				path: "cart",
 				element: <Cart />,
 			},
-		
+			{
+				path: "*",
+				element: <ErrorPage />,
+			},
 		],
+	},
+	{
+		path: "*",
+		element: <ErrorPage />,
 	},
 ]);
 

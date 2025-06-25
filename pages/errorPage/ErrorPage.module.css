@@ -1,12 +1,13 @@
 .errorContainer {
 	max-width: var(--container-width);
-	min-height: 100vh;
 	margin-inline: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: var(--spacing-xl);
+	/* border: salmon solid; */
+	padding: var(--spacing-xl);
 }
 
 .errorTitle {
