@@ -19,11 +19,11 @@
 
 - **Product card**
   Each product card should include:
-- [] Product Image
-- [] Title (e.g., product name)
-- [] Quantity input field (manual input)
-- [] Increment and decrement buttons (to adjust quantity)
-- [] “Add to Cart” button
+- [x] Product Image
+- [x] Title (e.g., product name)
+- [x] Quantity input field (manual input)
+- [x] Increment and decrement buttons (to adjust quantity)
+- [x] “Add to Cart” button
 
 - **Shopping Cart**
 - Display summary for each item in cart. Name, quantity, price per item, total price of item
@@ -46,9 +46,9 @@
 ## Misc
 
 - [] Use Lucide for icons.
-- [] Error page
-- [] React Router in app file
-- [] Outlet for home, shop page in app file.
+- [x] Error page
+- [x] React Router in app file
+- [x] Outlet for home, shop page in app file.
 - [] Cart state and logic in app file.
 
 ---
@@ -69,7 +69,7 @@
 
 ---
 
-### ProductCard
+### ProductCard - Completed
 
 **Purpose**: Lets users select quantity and add to cart
 

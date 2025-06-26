@@ -4,7 +4,6 @@ import userEvent from "@testing-library/user-event";
 import {
 	createMemoryRouter,
 	RouterProvider,
-	ScrollRestoration,
 } from "react-router-dom";
 import App from "../../src/App";
 import Home from "../home/Home";

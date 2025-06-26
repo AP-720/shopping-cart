@@ -1,0 +1,9 @@
+.cardContainer {
+    border: solid goldenrod;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-l);
+    padding: var(--spacing-l);
+}
