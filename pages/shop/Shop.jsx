@@ -1,24 +1,53 @@
 import Card from "../../components/Card/Card";
 import styles from "../shop/Shop.module.css";
-
-const productData = {
-	id: 0,
-	title: "Test Product",
-	price: 10,
-	description: "Test description",
-	image: "https://placehold.co/600x400",
-};
+import { useEffect, useState } from "react";
 
 export default function Shop() {
+	const [productData, setProductDate] = useState([]);
+
+	useEffect(() => {
+		async function fetchProductData() {
+			const url = "https://fakestoreapi.com/products";
+
+			try {
+				const response = await fetch(url);
+
+				const data = await response.json();
+
+				if (!response) {
+					throw new Error("Failed to fetch product data.");
+				} else {
+					setProductDate(
+						data.map((product) => {
+							return {
+								id: product.id,
+								title: product.title,
+								price: product.price,
+								description: product.description,
+								image: product.image,
+							};
+						})
+					);
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		}
+
+		fetchProductData();
+	}, []);
+
+	function addToCart() {
+
+	}
+
 	return (
 		<div data-testid="shopContainer" className={styles.shopContainer}>
 			<h1>Shop</h1>
 			<div className={styles.productContainer}>
-				<Card productData={productData} />
-				<Card productData={productData} />
-				<Card productData={productData} />
-				<Card productData={productData} />
-				
+				{productData.map((product) => {
+					return <Card key={product.id} productData={product} onAddToCart={addToCart}/>
+				})}
 			</div>
 		</div>
 	);

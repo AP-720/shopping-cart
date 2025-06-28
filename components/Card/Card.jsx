@@ -16,7 +16,6 @@ export default function Card({ productData, onAddToCart }) {
 
 	return (
 		<div
-			key={productData.id}
 			id={productData.id}
 			className={styles.cardContainer}
 			data-testid="cardContainer"
