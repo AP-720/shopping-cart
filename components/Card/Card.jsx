@@ -28,7 +28,13 @@ export default function Card({ productData, onAddToCart }) {
 				<input readOnly value={quantity} aria-label="Quantity" />
 				<button onClick={handleIncreaseQuantity}>+</button>
 			</div>
-			<button onClick={() => onAddToCart(productData, quantity)}>
+			<button
+				onClick={() => {
+					console.log("Add to Cart button clicked!");
+					console.log("onAddToCart received:", onAddToCart);
+					onAddToCart(productData, quantity);
+				}}
+			>
 				Add to Cart
 			</button>
 		</div>

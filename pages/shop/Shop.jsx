@@ -2,7 +2,7 @@ import Card from "../../components/Card/Card";
 import styles from "../shop/Shop.module.css";
 import { useEffect, useState } from "react";
 
-export default function Shop() {
+export default function Shop({ onAddToCart }) {
 	const [productData, setProductDate] = useState([]);
 
 	useEffect(() => {
@@ -33,20 +33,21 @@ export default function Shop() {
 				console.log(error);
 			}
 		}
-
 		fetchProductData();
 	}, []);
-
-	function addToCart() {
-
-	}
 
 	return (
 		<div data-testid="shopContainer" className={styles.shopContainer}>
 			<h1>Shop</h1>
 			<div className={styles.productContainer}>
 				{productData.map((product) => {
-					return <Card key={product.id} productData={product} onAddToCart={addToCart}/>
+					return (
+						<Card
+							key={product.id}
+							productData={product}
+							onAddToCart={onAddToCart}
+						/>
+					);
 				})}
 			</div>
 		</div>
