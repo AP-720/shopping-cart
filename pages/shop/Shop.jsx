@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Shop({ onAddToCart }) {
 	const [productData, setProductDate] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		async function fetchProductData() {
@@ -28,6 +29,7 @@ export default function Shop({ onAddToCart }) {
 							};
 						})
 					);
+					setIsLoading(false)
 				}
 			} catch (error) {
 				console.log(error);
@@ -40,15 +42,19 @@ export default function Shop({ onAddToCart }) {
 		<div data-testid="shopContainer" className={styles.shopContainer}>
 			<h1>Shop</h1>
 			<div className={styles.productContainer}>
-				{productData.map((product) => {
-					return (
-						<Card
-							key={product.id}
-							productData={product}
-							onAddToCart={onAddToCart}
-						/>
-					);
-				})}
+				{isLoading ? (
+					<p>Loading</p>
+				) : (
+					productData.map((product) => {
+						return (
+							<Card
+								key={product.id}
+								productData={product}
+								onAddToCart={onAddToCart}
+							/>
+						);
+					})
+				)}
 			</div>
 		</div>
 	);

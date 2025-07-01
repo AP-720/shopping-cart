@@ -1,7 +1,10 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
+
 import userEvent from "@testing-library/user-event";
 import Shop from "./Shop";
+import { server } from "../../src/mocks/server";
+import { HttpResponse } from "msw";
 
 describe("Shop Component", () => {
 	it("Should render a 'card' for each product in the data file", async () => {
@@ -33,7 +36,13 @@ describe("Shop Component", () => {
 		});
 	});
 
-	
-});
+	it("Should initially display loader before data has been fetched.", async () => {
+		render(<Shop />);
 
-// Test that loading is displayed first then once data is loaded no longer shown.
+		expect(screen.getByText("Loading")).toBeInTheDocument();
+
+		const productTitleOne = await screen.findByText("Test Product 1");
+		expect(productTitleOne).toBeInTheDocument();
+		expect(screen.queryByText("Loading")).not.toBeInTheDocument();
+	});
+});

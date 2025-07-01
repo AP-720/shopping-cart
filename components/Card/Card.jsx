@@ -30,8 +30,6 @@ export default function Card({ productData, onAddToCart }) {
 			</div>
 			<button
 				onClick={() => {
-					console.log("Add to Cart button clicked!");
-					console.log("onAddToCart received:", onAddToCart);
 					onAddToCart(productData, quantity);
 				}}
 			>
