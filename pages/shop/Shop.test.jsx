@@ -1,10 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
-
 import userEvent from "@testing-library/user-event";
 import Shop from "./Shop";
-import { server } from "../../src/mocks/server";
-import { HttpResponse } from "msw";
 
 describe("Shop Component", () => {
 	it("Should render a 'card' for each product in the data file", async () => {

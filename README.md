@@ -82,7 +82,7 @@
 
 ---
 
-### Shop
+### Shop - Completed
 
 **Purpose**: Displays all product cards and passes `addToCart` down
 
