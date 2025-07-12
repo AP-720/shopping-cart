@@ -1,10 +1,12 @@
+import { useOutletContext } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import styles from "../shop/Shop.module.css";
-import { useEffect, useState } from "react";
 
-export default function Shop({ onAddToCart }) {
+export default function Shop() {
 	const [productData, setProductDate] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const onAddToCart = useOutletContext();
 
 	useEffect(() => {
 		async function fetchProductData() {
@@ -29,7 +31,7 @@ export default function Shop({ onAddToCart }) {
 							};
 						})
 					);
-					setIsLoading(false)
+					setIsLoading(false);
 				}
 			} catch (error) {
 				console.log(error);

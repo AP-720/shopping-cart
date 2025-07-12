@@ -30,7 +30,7 @@ export default function Card({ productData, onAddToCart }) {
 			</div>
 			<button
 				onClick={() => {
-					onAddToCart(productData, quantity);
+					onAddToCart(quantity, productData);
 				}}
 			>
 				Add to Cart

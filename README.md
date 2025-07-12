@@ -57,7 +57,7 @@
 
 ---
 
-### Navbar
+### Navbar - Completed
 
 **Purpose**: Renders nav links and cart summary
 

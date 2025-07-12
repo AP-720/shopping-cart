@@ -2,6 +2,9 @@ import { describe, it, expect, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Shop from "./Shop";
+import { createMemoryRouter, Outlet, RouterProvider } from "react-router-dom";
+import App from "../../src/App";
+import { StrictMode } from "react";
 
 describe("Shop Component", () => {
 	it("Should render a 'card' for each product in the data file", async () => {
@@ -18,7 +21,26 @@ describe("Shop Component", () => {
 		const user = userEvent.setup();
 		const onAddToCart = vi.fn();
 
-		render(<Shop onAddToCart={onAddToCart} />);
+		// Minimal wrapper component that acts as the parent route
+		// and provides the context that Shop expects.
+		function TestOutletWrapper({ mockFunction }) {
+			return <Outlet context={mockFunction} />;
+		}
+
+		const router = createMemoryRouter([
+			{
+				path: "/",
+				// The 'element' is the simple wrapper that provides the context
+				element: <TestOutletWrapper mockFunction={onAddToCart} />,
+				children: [{ index: true, element: <Shop /> }],
+			},
+		]);
+
+		render(
+			<StrictMode>
+				<RouterProvider router={router} />
+			</StrictMode>
+		);
 
 		// Need to us findAllBy as there are multiple items found by that name. Also need to use 'find' when working with async things and remember to add await.
 		const addToCartButton = await screen.findAllByRole("button", {

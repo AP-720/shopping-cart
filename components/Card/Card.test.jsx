@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Card from "./Card";
 
-
 const testData = {
 	id: 0,
 	title: "Test Product",
@@ -78,15 +77,12 @@ describe("Card Component", () => {
 		await user.click(addToCartButton);
 
 		expect(addToCart).toHaveBeenCalled();
-		expect(addToCart).toHaveBeenCalledWith(
-			{
-				id: 0,
-				title: "Test Product",
-				price: 10,
-				description: "Test description",
-				image: "http://example.com",
-			},
-			1
-		);
+		expect(addToCart).toHaveBeenCalledWith(1, {
+			id: 0,
+			title: "Test Product",
+			price: 10,
+			description: "Test description",
+			image: "http://example.com",
+		});
 	});
 });
