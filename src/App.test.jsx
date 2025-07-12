@@ -1,10 +1,17 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
+import {
+	createMemoryRouter,
+	MemoryRouter,
+	Route,
+	RouterProvider,
+	Routes,
+} from "react-router-dom";
 import App from "./App";
 import Home from "../pages/home/Home";
 import Shop from "../pages/shop/Shop";
+import { StrictMode, use } from "react";
 
 describe("App component", () => {
 	it("App renders NavBar, Main and footer", () => {
@@ -58,5 +65,38 @@ describe("App component", () => {
 		const shopContainer = await screen.findByTestId("shopContainer");
 		expect(shopContainer).toBeInTheDocument();
 		expect(screen.queryByTestId("homeContainer")).not.toBeInTheDocument();
+	});
+
+	it("Should render the correct number of products in the navbar when they are added to cart", async () => {
+		const user = userEvent.setup();
+
+		const router = createMemoryRouter([
+			{
+				path: "/",
+				element: <App />,
+				children: [{ index: true, element: <Shop /> }],
+			},
+		]);
+
+		render(
+			<StrictMode>
+				<RouterProvider router={router} />
+			</StrictMode>
+		);
+
+		await screen.findAllByTestId("shopContainer");
+		expect(screen.getByText("Cart")).toBeInTheDocument();
+
+		const plusButton = await screen.findAllByRole("button", { name: "+" });
+		const addToCartButton = await screen.findAllByRole("button", {
+			name: "Add to Cart",
+		});
+
+		await user.click(plusButton[0]);
+		await user.click(plusButton[0]);
+		await user.click(addToCartButton[0]);
+
+		const cartDisplay = await screen.findByText("Cart - (3)")
+	 	expect(cartDisplay).toBeInTheDocument();
 	});
 });
