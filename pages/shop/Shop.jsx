@@ -6,7 +6,7 @@ import styles from "../shop/Shop.module.css";
 export default function Shop() {
 	const [productData, setProductDate] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const onAddToCart = useOutletContext();
+	const {addToCart} = useOutletContext();
 
 	useEffect(() => {
 		async function fetchProductData() {
@@ -45,14 +45,17 @@ export default function Shop() {
 			<h1>Shop</h1>
 			<div className={styles.productContainer}>
 				{isLoading ? (
-					<p>Loading</p>
+					<div className={styles.loadingContainer}>
+						<h2>Loading</h2>
+						<div className={styles.loadingSpinner}></div>
+					</div>
 				) : (
 					productData.map((product) => {
 						return (
 							<Card
 								key={product.id}
 								productData={product}
-								onAddToCart={onAddToCart}
+								onAddToCart={addToCart}
 							/>
 						);
 					})

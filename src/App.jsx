@@ -10,6 +10,12 @@ function App() {
 		return (itemCount += item.quantity);
 	}, 0);
 
+	const outletContext = {
+		addToCart: addToCart,
+		cartItems: cartItems,
+		resetCart: resetCart,
+	};
+
 	function addToCart(quantity, productData) {
 		setCartItems((prevItems) => {
 			//  Use find() to see if the product is already in the cart.
@@ -30,13 +36,17 @@ function App() {
 		});
 	}
 
+	function resetCart() {
+		setCartItems([])
+	}
+
 	return (
 		<div className={styles.appLayout}>
 			<header className={styles.headerContainer}>
 				<NavBar cartItemCount={cartItemCount} />
 			</header>
 			<main className={styles.mainContainer}>
-				<Outlet context={addToCart} />
+				<Outlet context={outletContext} />
 			</main>
 			<footer data-testid="footer">
 				<div className={styles.footerContainer}>

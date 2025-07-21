@@ -31,7 +31,6 @@
 	--spacing-3xl: 4rem;
 
 	--container-width: 1200px;
-
 }
 
 body {
@@ -51,4 +50,6 @@ p {
 	margin: 0;
 }
 
-
+h1 {
+	padding-bottom: var(--spacing-m);
+}

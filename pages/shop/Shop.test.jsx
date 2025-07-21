@@ -7,8 +7,31 @@ import App from "../../src/App";
 import { StrictMode } from "react";
 
 describe("Shop Component", () => {
+	// Minimal wrapper component that acts as the parent route
+	// and provides the context that Shop expects.
+	function TestOutletWrapper({ contextValue }) {
+		// ContextValue should be the entire object to pass down
+		return <Outlet context={contextValue} />;
+	}
+
 	it("Should render a 'card' for each product in the data file", async () => {
-		render(<Shop />);
+		const dummyAddToCart = vi.fn();
+		const dummyContextObject = { addToCart: dummyAddToCart };
+
+		const router = createMemoryRouter([
+			{
+				path: "/",
+				// The 'element' is the simple wrapper that provides the context
+				element: <TestOutletWrapper contextValue={dummyContextObject} />,
+				children: [{ index: true, element: <Shop /> }],
+			},
+		]);
+
+		render(
+			<StrictMode>
+				<RouterProvider router={router} />
+			</StrictMode>
+		);
 
 		const productTitleOne = await screen.findByText("Test Product 1");
 		const productTitleTwo = await screen.findByText("Test Product 2");
@@ -21,17 +44,13 @@ describe("Shop Component", () => {
 		const user = userEvent.setup();
 		const onAddToCart = vi.fn();
 
-		// Minimal wrapper component that acts as the parent route
-		// and provides the context that Shop expects.
-		function TestOutletWrapper({ mockFunction }) {
-			return <Outlet context={mockFunction} />;
-		}
+		const mockContextObject = { addToCart: onAddToCart };
 
 		const router = createMemoryRouter([
 			{
 				path: "/",
 				// The 'element' is the simple wrapper that provides the context
-				element: <TestOutletWrapper mockFunction={onAddToCart} />,
+				element: <TestOutletWrapper contextValue={mockContextObject} />,
 				children: [{ index: true, element: <Shop /> }],
 			},
 		]);
@@ -56,7 +75,23 @@ describe("Shop Component", () => {
 	});
 
 	it("Should initially display loader before data has been fetched.", async () => {
-		render(<Shop />);
+		const dummyAddToCart = vi.fn();
+		const dummyContextObject = { addToCart: dummyAddToCart };
+
+		const router = createMemoryRouter([
+			{
+				path: "/",
+				// The 'element' is the simple wrapper that provides the context
+				element: <TestOutletWrapper contextValue={dummyContextObject} />,
+				children: [{ index: true, element: <Shop /> }],
+			},
+		]);
+
+		render(
+			<StrictMode>
+				<RouterProvider router={router} />
+			</StrictMode>
+		);
 
 		expect(screen.getByText("Loading")).toBeInTheDocument();
 

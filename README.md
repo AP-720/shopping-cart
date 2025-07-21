@@ -4,7 +4,7 @@
 
 - [x] link to home page
 - [x] Link to shop page
-- [] Shopping cart icon - display how many items are in the cart.
+- [x] Shopping cart icon - display how many items are in the cart.
 
 ---
 
@@ -27,10 +27,9 @@
 
 - **Shopping Cart**
 - Display summary for each item in cart. Name, quantity, price per item, total price of item
-- [] Total for whole cart
-- [] Remove item button
+- [x] Total for whole cart
 - [] Check out button - Fake payment process animation, then reset cart.
-- [] Will have to have some state to store whats in cart, might need to be in parent.
+- [x] Will have to have some state to store whats in cart, might need to be in parent.
 
 ---
 
@@ -49,7 +48,7 @@
 - [x] Error page
 - [x] React Router in app file
 - [x] Outlet for home, shop page in app file.
-- [] Cart state and logic in app file.
+- [x] Cart state and logic in app file.
 
 ---
 
@@ -105,7 +104,7 @@
 
 ---
 
-### App
+### App - Complete 
 
 **Purpose**: Holds routes and cart state
 
