@@ -1,2 +1,68 @@
-.HomeContainer {
+.homeContainer {
+}
+
+/* Styles for the container that holds the image and content */
+.heroContainer {
+	position: relative; /* Establishes positioning context for the image */
+	min-height: 50em; /* Defines the height of hero section */
+	overflow: hidden; /* Hides any horizontal overflow 
+
+    /* --- KEY RULES FOR FULL VIEWPORT WIDTH --- */
+	width: 100vw; /* Make this container span 100% of the viewport width */
+	left: 50%;
+	transform: translateX(-50%);
+	/* This combination ensures .heroContainer breaks out of any parent max-width/padding */
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Styles for image*/
+.heroImage {
+	position: absolute; /* Takes the image out of normal flow, allows layering */
+	top: 0; /* Positions it at the top of its .heroContainer parent */
+	left: 0; /* Positions it at the left of its .heroContainer parent */
+	width: 100%; /* Makes the image fill 100% width of its .heroContainer parent (which is 100vw) */
+	height: 100%; /* Makes the image fill 100% height of its heroContainer parent */
+	object-fit: cover;
+	z-index: 1; /* Places the image behind the content */
+}
+
+/* 3. Styles for the content layered on top of the image */
+.heroContent {
+	position: relative; /* Brings content to the front */
+	z-index: 2; /* Ensures content is above the image */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    gap: var(--spacing-l);
+
+	color: white;
+	/* text-align: center; */
+	padding: var(--spacing-l);
+	max-width: var(
+		--container-width
+	); /* Keep content readable within a reasonable width */
+
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* For text readability over image */
+}
+
+.linkButton {
+	/* margin: var(--spacing-l) 0; */
+	display: inline-block;
+	border: solid 1px;
+	padding: var(--spacing-m) var(--spacing-l);
+	background-color: bisque;
+	border-radius: 5px;
+}
+
+.linkButton:hover {
+	background-color: antiquewhite;
+}
+
+.linkButton:visited {
+	color: inherit;
 }

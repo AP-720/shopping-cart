@@ -3,7 +3,6 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Shop from "./Shop";
 import { createMemoryRouter, Outlet, RouterProvider } from "react-router-dom";
-import App from "../../src/App";
 import { StrictMode } from "react";
 
 describe("Shop Component", () => {
