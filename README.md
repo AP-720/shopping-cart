@@ -28,7 +28,7 @@
 - **Shopping Cart**
 - Display summary for each item in cart. Name, quantity, price per item, total price of item
 - [x] Total for whole cart
-- [] Check out button - Fake payment process animation, then reset cart.
+- [x] Check out button - Fake payment process animation, then reset cart.
 - [x] Will have to have some state to store whats in cart, might need to be in parent.
 
 ---
@@ -93,7 +93,7 @@
 
 ---
 
-### Home
+### Home - Complete
 
 **Purpose**: Simple page with static content
 

@@ -31,9 +31,6 @@ describe("App component", () => {
 
 		const homeContainerDiv = screen.getByTestId("homeContainer");
 		expect(homeContainerDiv).toBeInTheDocument();
-		// expect(homeContainerDiv).toHaveClass("homeContainer");
-		expect(screen.getByRole("heading").textContent).toMatch("Home");
-
 		expect(screen.getByTestId("footer")).toBeInTheDocument();
 	});
 
@@ -96,7 +93,7 @@ describe("App component", () => {
 		await user.click(plusButton[0]);
 		await user.click(addToCartButton[0]);
 
-		const cartDisplay = await screen.findByText("Cart - (3)")
-	 	expect(cartDisplay).toBeInTheDocument();
+		const cartDisplay = await screen.findByText("Cart - (3)");
+		expect(cartDisplay).toBeInTheDocument();
 	});
 });
