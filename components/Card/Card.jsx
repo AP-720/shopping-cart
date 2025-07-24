@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Card.module.css";
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 export default function Card({ productData, onAddToCart }) {
 	const [quantity, setQuantity] = useState(1);
@@ -28,13 +29,9 @@ export default function Card({ productData, onAddToCart }) {
 				<input readOnly value={quantity} aria-label="Quantity" />
 				<button onClick={handleIncreaseQuantity}>+</button>
 			</div>
-			<button
-				onClick={() => {
-					onAddToCart(quantity, productData);
-				}}
-			>
+			<ButtonLink onClick={() => onAddToCart(quantity, productData)}>
 				Add to Cart
-			</button>
+			</ButtonLink>
 		</div>
 	);
 }

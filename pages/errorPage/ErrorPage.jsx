@@ -1,5 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 import styles from "../errorPage/ErrorPage.module.css";
+import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
 export default function ErrorPage() {
 	const error = useRouteError();

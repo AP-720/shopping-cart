@@ -1,0 +1,17 @@
+.buttonLink {
+	display: inline-block;
+	border: solid 1px;
+	padding: var(--spacing-m) var(--spacing-l);
+	background-color: bisque;
+	border-radius: 5px;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+.buttonLink:hover {
+	background-color: antiquewhite;
+}
+
+

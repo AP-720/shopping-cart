@@ -33,23 +33,6 @@
 	gap: var(--spacing-m);
 }
 
-.linkButton {
-	/* margin: var(--spacing-l) 0; */
-	display: inline-block;
-	border: solid 1px;
-	padding: var(--spacing-m) var(--spacing-l);
-	background-color: bisque;
-	border-radius: 5px;
-}
-
-.linkButton:hover {
-	background-color: antiquewhite;
-}
-
-.linkButton:visited {
-	color: inherit;
-}
-
 /* CheckOut Processing State */
 
 .checkoutContainer {

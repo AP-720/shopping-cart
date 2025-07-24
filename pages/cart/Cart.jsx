@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.css";
 import { useState } from "react";
+import ButtonLink from "../../components/ButtonLink/ButtonLink";
 
 export default function Cart() {
 	const { cartItems, resetCart } = useOutletContext();
@@ -29,9 +30,7 @@ export default function Cart() {
 						<p className={styles.messageContainer}>
 							You have nothing in your shopping cart
 						</p>
-						<Link to={"/shop"} className={styles.linkButton}>
-							Continue Shopping
-						</Link>
+						<ButtonLink to={"/shop"}>Continue Shopping</ButtonLink>
 					</>
 				) : (
 					<>
@@ -51,12 +50,9 @@ export default function Cart() {
 						})}
 						<div className={styles.totalContainer}>
 							<h3>Total: £{cartPriceTotal.toFixed(2)}</h3>
-							<button
-								className={styles.linkButton}
-								onClick={() => handleCheckOut()}
-							>
+							<ButtonLink onClick={() => handleCheckOut()}>
 								Check Out
-							</button>
+							</ButtonLink>
 						</div>
 					</>
 				)
