@@ -1,13 +1,23 @@
 import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
+import { House, ShoppingCart, Store } from "lucide-react";
 
 export default function NavBar({ cartItemCount = 0 }) {
 	return (
 		<nav className={styles.navBar}>
-			<NavLink to="/">Home</NavLink>
-			<NavLink to="/shop">Shop</NavLink>
+			<NavLink to="/">
+				<House />
+			</NavLink>
+			<NavLink to="/shop">
+				<Store />
+			</NavLink>
 			<NavLink to="/cart">
-				{cartItemCount > 0 ? `Cart - (${cartItemCount})` : "Cart"}
+				<div className={styles.cartCountContainer}>
+					<ShoppingCart />{" "}
+					{cartItemCount > 0 && (
+						<span className={styles.cartCount}>- ({cartItemCount})</span>
+					)}
+				</div>
 			</NavLink>
 		</nav>
 	);

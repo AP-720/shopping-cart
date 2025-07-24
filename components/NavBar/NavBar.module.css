@@ -9,4 +9,16 @@ a {
 	padding: var(--spacing-xl) var(--spacing-l);
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+}
+
+.cartCountContainer {
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	gap: var(--spacing-s);
+}
+
+.cartCount {
+	font-size: var(--heading-3-size);
 }

@@ -44,7 +44,7 @@
 
 ## Misc
 
-- [] Use Lucide for icons.
+- [x] Use Lucide for icons.
 - [x] Error page
 - [x] React Router in app file
 - [x] Outlet for home, shop page in app file.
