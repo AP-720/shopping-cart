@@ -8,7 +8,32 @@ import Home from "../../pages/home/Home";
 import { StrictMode } from "react";
 
 describe("NavBar Component", () => {
-	beforeEach(() => {
+	// Removed this as it was causing issues with the test passing in cart count. It caused two of everything to be rendered, so when querying it found multiple.
+	// beforeEach(() => {
+	// 	const router = createMemoryRouter([
+	// 		{
+	// 			path: "/",
+	// 			element: <App />,
+	// 			children: [{ index: true, element: <Home /> }],
+	// 		},
+	// 		{
+	// 			path: "/shop",
+	// 			element: <div data-testid="shopContainer"></div>,
+	// 		},
+	// 		{
+	// 			path: "/cart",
+	// 			element: <div data-testid="cartContainer"></div>,
+	// 		},
+	// 	]);
+
+	// 	render(
+	// 		<StrictMode>
+	// 			<RouterProvider router={router} />
+	// 		</StrictMode>
+	// 	);
+	// });
+
+	it("Should render links to Home, Shop and Cart", () => {
 		const router = createMemoryRouter([
 			{
 				path: "/",
@@ -30,18 +55,44 @@ describe("NavBar Component", () => {
 				<RouterProvider router={router} />
 			</StrictMode>
 		);
-	});
 
-	it("Should render links to Home, Shop and Cart", () => {
-		expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
-		expect(screen.getByRole("link", { name: "Shop" })).toBeInTheDocument();
-		expect(screen.getByRole("link", { name: "Cart" })).toBeInTheDocument();
+		expect(
+			screen.getByRole("link", { name: "Go to home page" })
+		).toBeInTheDocument();
+		expect(
+			screen.getByRole("link", { name: "Go to shop page" })
+		).toBeInTheDocument();
+		expect(
+			screen.getByRole("link", { name: "View shopping cart" })
+		).toBeInTheDocument();
 	});
 
 	it("Should navigate to cart when 'Cart' link clicked", async () => {
 		const user = userEvent.setup();
 
-		const cartLink = screen.getByRole("link", { name: "Cart" });
+		const router = createMemoryRouter([
+			{
+				path: "/",
+				element: <App />,
+				children: [{ index: true, element: <Home /> }],
+			},
+			{
+				path: "/shop",
+				element: <div data-testid="shopContainer"></div>,
+			},
+			{
+				path: "/cart",
+				element: <div data-testid="cartContainer"></div>,
+			},
+		]);
+
+		render(
+			<StrictMode>
+				<RouterProvider router={router} />
+			</StrictMode>
+		);
+
+		const cartLink = screen.getByRole("link", { name: "View shopping cart" });
 
 		await user.click(cartLink);
 
@@ -66,6 +117,8 @@ describe("NavBar Component", () => {
 			</StrictMode>
 		);
 
-		expect(screen.getByText("Cart - (5)")).toBeInTheDocument();
+		const cartLink = screen.getByRole("link", { name: "View shopping cart" });
+
+		expect(cartLink).toHaveTextContent("(5)");
 	});
 });

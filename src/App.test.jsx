@@ -11,7 +11,7 @@ import {
 import App from "./App";
 import Home from "../pages/home/Home";
 import Shop from "../pages/shop/Shop";
-import { StrictMode, use } from "react";
+import { StrictMode } from "react";
 
 describe("App component", () => {
 	it("App renders NavBar, Main and footer", () => {
@@ -27,7 +27,9 @@ describe("App component", () => {
 
 		// Tests NavBar Renders and contains link to Home
 		expect(screen.getByRole("navigation")).toBeInTheDocument();
-		expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
+		expect(
+			screen.getByRole("link", { name: "Go to home page" })
+		).toBeInTheDocument();
 
 		const homeContainerDiv = screen.getByTestId("homeContainer");
 		expect(homeContainerDiv).toBeInTheDocument();
@@ -52,7 +54,7 @@ describe("App component", () => {
 		// Use queryByTestId because the element is NOT expected to be in the document initially
 		expect(screen.queryByTestId("shopContainer")).not.toBeInTheDocument();
 
-		const shopLink = screen.getByRole("link", { name: "Shop" });
+		const shopLink = screen.getByRole("link", { name: "Go to shop page" });
 
 		await user.click(shopLink);
 
@@ -82,7 +84,9 @@ describe("App component", () => {
 		);
 
 		await screen.findAllByTestId("shopContainer");
-		expect(screen.getByText("Cart")).toBeInTheDocument();
+		expect(
+			screen.getByRole("link", { name: "View shopping cart" })
+		).toBeInTheDocument();
 
 		const plusButton = await screen.findAllByRole("button", { name: "+" });
 		const addToCartButton = await screen.findAllByRole("button", {
@@ -93,7 +97,9 @@ describe("App component", () => {
 		await user.click(plusButton[0]);
 		await user.click(addToCartButton[0]);
 
-		const cartDisplay = await screen.findByText("Cart - (3)");
-		expect(cartDisplay).toBeInTheDocument();
+		const cartDisplay = await screen.findByRole("link", {
+			name: "View shopping cart",
+		});
+		expect(cartDisplay).toHaveTextContent("(3)");
 	});
 });
