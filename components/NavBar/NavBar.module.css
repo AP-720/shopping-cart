@@ -4,7 +4,6 @@ a {
 
 .navBar {
 	max-width: var(--container-width);
-	/* border: solid red; */
 	margin-inline: auto;
 	padding: var(--spacing-l) var(--spacing-l);
 	display: flex;

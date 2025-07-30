@@ -1,18 +1,18 @@
 :root {
 	/* Colours */
 	--primary-color: #f2762e;
-	--secondary-color: #2D4859;
+	--secondary-color: #2d4859;
 	--accent-color: #f27e63;
 	--background-color: #dcc8c2;
 
-	--success-color: #55734F;
+	--success-color: #55734f;
 	--warning-color: #dc3545;
 	--danger-color: #dc3545;
 
 	/* Typography */
 	--color-text-primary: #333333;
-	--color-text-light: #F6F7FA;
-	
+	--color-text-light: #f6f7fa;
+
 	--base-font-size: 16px;
 	--heading-1-size: 2.25rem; /* 36px */
 	--heading-2-size: 1.75rem; /* 28px */
