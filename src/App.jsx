@@ -50,10 +50,13 @@ function App() {
 			</main>
 			<footer data-testid="footer">
 				<div className={styles.footerContainer}>
-					<p>
+					<p className={styles.footerLeft}>
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 						Repudiandae cupiditate officiis fugiat soluta repellendus aliquid
 						ducimus corrupti fugit est veniam.
+					</p>
+					<p className={styles.footerRight}>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						 Deserunt cumque reiciendis, sint doloribus aliquam tempore ut odio fuga accusamus cum.
 					</p>
 				</div>
 			</footer>

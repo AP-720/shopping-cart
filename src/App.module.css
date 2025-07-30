@@ -1,5 +1,5 @@
 header {
-	background-color: green;
+	background-color: var(--background-color);
 }
 
 main {
@@ -7,7 +7,7 @@ main {
 }
 
 footer {
-	background-color: aqua;
+	background-color: var(--background-color);
 }
 
 /* .headerContainer {
@@ -26,7 +26,7 @@ footer {
 	max-width: var(--container-width);
 	margin-inline: auto;
 	padding: 0 var(--spacing-l);
-	border: solid rebeccapurple;
+	/* border: solid rebeccapurple; */
 }
 
 .footerContainer {
@@ -34,4 +34,14 @@ footer {
 	margin-inline: auto;
 	padding: var(--spacing-xl) var(--spacing-l);
 	border: solid pink;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.footerLeft {
+	text-align: left;
+}
+
+.footerRight {
+	text-align: right;
 }

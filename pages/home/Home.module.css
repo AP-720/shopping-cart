@@ -39,30 +39,28 @@
 	justify-content: center;
 	align-items: center;
 	gap: var(--spacing-l);
-
-	color: white;
-	/* text-align: center; */
+	color: var(--color-text-light);
 	padding: var(--spacing-l);
 	max-width: var(
 		--container-width
 	); /* Keep content readable within a reasonable width */
-
-	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* For text readability over image */
 }
 
-.linkButton {
-	/* margin: var(--spacing-l) 0; */
-	display: inline-block;
-	border: solid 1px;
-	padding: var(--spacing-m) var(--spacing-l);
-	background-color: bisque;
-	border-radius: 5px;
+.heroTitle {
+	font-size: 4rem;
+	padding: 0;
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* For text readability over image */
 }
 
-.linkButton:hover {
-	background-color: antiquewhite;
+.heroButton {
+	padding: var(--spacing-l) var(--spacing-3xl);
+	background-color: var(--primary-color);
+	border: solid 3px var(--background-color);
+	font-size: var(--heading-3-size);
+	color: var(--color-text-light);
+	transition: transform 0.2s ease-in-out;
 }
-
-.linkButton:visited {
-	color: inherit;
+.heroButton:hover {
+	background-color: var(--primary-color);
+	transform: translateY(-2px);
 }

@@ -4,21 +4,38 @@ a {
 
 .navBar {
 	max-width: var(--container-width);
-	border: solid red;
+	/* border: solid red; */
 	margin-inline: auto;
-	padding: var(--spacing-xl) var(--spacing-l);
+	padding: var(--spacing-l) var(--spacing-l);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
+.navItem {
+	color: var(--primary-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: var(--spacing-s);
+}
+
+.navItem:hover {
+	color: var(--accent-color);
+}
+
+.navbarIcon {
+	width: 30px;
+	height: 30px;
+}
+
 .cartCountContainer {
 	display: flex;
-	justify-content:center;
-	align-items:center;
+	justify-content: center;
+	align-items: center;
 	gap: var(--spacing-s);
 }
 
-.cartCount {
-	font-size: var(--heading-3-size);
+.activeLink {
+	border-bottom: solid 2px var(--secondary-color);
 }

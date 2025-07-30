@@ -13,9 +13,9 @@ export default function Home() {
 				/>
 
 				<div className={styles.heroContent}>
-					<h1>Welcome</h1>
+					<h1 className={styles.heroTitle}>Welcome</h1>
 					<p>Discover our full range of products</p>
-					<ButtonLink to={"/shop"}>Shop Now</ButtonLink>
+					<ButtonLink to={"/shop"} className={styles.heroButton}>Shop Now</ButtonLink>
 				</div>
 			</div>
 		</div>
