@@ -23,15 +23,17 @@ export default function Card({ productData, onAddToCart }) {
 		>
 			<h2 className={styles.productTitle}>{productData.title}</h2>
 			<img src={productData.image} alt={productData.description} />
-			<p>Price: £{productData.price}</p>
-			<div className={styles.quantityContainer}>
-				<button onClick={handleDecreaseQuantity}>-</button>
-				<input readOnly value={quantity} aria-label="Quantity" />
-				<button onClick={handleIncreaseQuantity}>+</button>
+			<div className={styles.productControlContainer}>
+				<div className={styles.quantityContainer}>
+					<button onClick={handleDecreaseQuantity}>-</button>
+					<input readOnly value={quantity} aria-label="Quantity" />
+					<button onClick={handleIncreaseQuantity}>+</button>
+				</div>
+				<p>Price: £{productData.price}</p>
+				<ButtonLink onClick={() => onAddToCart(quantity, productData)}>
+					Add to Cart
+				</ButtonLink>
 			</div>
-			<ButtonLink onClick={() => onAddToCart(quantity, productData)}>
-				Add to Cart
-			</ButtonLink>
 		</div>
 	);
 }

@@ -1,9 +1,41 @@
 .cardContainer {
-    border: solid goldenrod;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-l);
-    padding: var(--spacing-l);
+	border: solid var(--accent-color);
+	border-radius: var(--spacing-s);
+	background-color: var(--accent-color);
+	gap: var(--spacing-l);
+	padding: var(--spacing-l);
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+		rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.productTitle {
+	color: var(--secondary-color);
+	font-size: var(--body-text-size);
+	text-align: center;
+}
+
+.cardContainer img {
+	max-height: 200px;
+}
+
+.productControlContainer {
+	align-self: end;
+	display: grid;
+	justify-items: center;
+	align-content: space-evenly;
+	gap: var(--spacing-s);
+}
+
+.quantityContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.quantityContainer input {
+	text-align: center;
+	max-width: 50px;
 }
