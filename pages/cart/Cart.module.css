@@ -1,5 +1,13 @@
 .cartContainer {
 	position: relative;
+	max-width: var(--container-width);
+	padding: 0 var(--spacing-l);
+	margin-inline: auto;
+}
+
+.cartHeader {
+	padding: var(--spacing-l) 0;
+	color: var(--secondary-color);
 }
 
 .cartItem {
@@ -31,6 +39,18 @@
 	flex-direction: column;
 	align-items: flex-end;
 	gap: var(--spacing-m);
+}
+
+.checkOutButton {
+	padding: var(--spacing-l) var(--spacing-xl);
+	background-color: var(--primary-color);
+	border: solid 3px var(--secondary-color);
+	font-size: var(--heading-3-size);
+	color: var(--color-text-light);
+}
+
+.checkOutButton:hover {
+	background-color: var(--success-color);
 }
 
 /* CheckOut Processing State */

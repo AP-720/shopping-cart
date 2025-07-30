@@ -55,7 +55,7 @@
 .heroButton {
 	padding: var(--spacing-l) var(--spacing-3xl);
 	background-color: var(--primary-color);
-	border: solid 3px var(--background-color);
+	border: solid 3px var(--secondary-color);
 	font-size: var(--heading-3-size);
 	color: var(--color-text-light);
 	transition: transform 0.2s ease-in-out;

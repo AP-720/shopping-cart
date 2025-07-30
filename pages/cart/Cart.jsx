@@ -23,14 +23,16 @@ export default function Cart() {
 
 	return (
 		<div data-testid="cartContainer" className={styles.cartContainer}>
-			<h1>Cart</h1>
+			<h1 className={styles.cartHeader}>Cart</h1>
 			{!isProcessing ? (
 				cartItems.length === 0 ? (
 					<>
 						<p className={styles.messageContainer}>
 							You have nothing in your shopping cart
 						</p>
-						<ButtonLink to={"/shop"}>Continue Shopping</ButtonLink>
+						<ButtonLink to={"/shop"} className={styles.checkOutButton}>
+							Continue Shopping
+						</ButtonLink>
 					</>
 				) : (
 					<>
@@ -50,7 +52,10 @@ export default function Cart() {
 						})}
 						<div className={styles.totalContainer}>
 							<h3>Total: £{cartPriceTotal.toFixed(2)}</h3>
-							<ButtonLink onClick={() => handleCheckOut()}>
+							<ButtonLink
+								onClick={() => handleCheckOut()}
+								className={styles.checkOutButton}
+							>
 								Check Out
 							</ButtonLink>
 						</div>
